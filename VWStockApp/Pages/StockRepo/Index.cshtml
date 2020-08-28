@@ -1,0 +1,95 @@
+﻿@page
+@model VWStockApp.Pages.StockRepo.IndexModel
+
+@{
+	ViewData["Title"] = "Stock";
+}
+<div class="row">
+	<div class="col-md-10">
+		<h1>Stock</h1>
+	</div>
+
+	<div class="col-md-2">
+		<a class="btn btn-primary btn-lg btn-block" asp-page="Create">Add Car</a>
+	</div>
+</div>
+
+<div class="col-md-4 search-bar">
+	<form method="get">
+	<div class="input-group">
+		<input class="form-control" asp-for="q" />
+		<div class="input-group-append">
+			<button type="submit" class="btn btn-primary">Search</button>
+		</div>
+	</div>
+	</form>
+</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Make</th>
+			<th>Model</th>
+			<th>Trim Level</th>
+			<th>Colour</th>
+			<th>Price</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.StockItems)
+		{
+			<tr class="expander-row">
+				<td data-label="Stock ID">
+					@Html.DisplayFor(modelItem => item.ID)
+				</td>
+				<td data-label="Make">
+					@Html.DisplayFor(modelItem => item.Make.Name)
+				</td>
+				<td data-label="Model">
+					@Html.DisplayFor(modelItem => item.CarModel.Name)
+				</td>
+				<td data-label="Trim Level">
+					@Html.DisplayFor(modelItem => item.TrimLevel.Name)
+				</td>
+				<td data-label="Colour">
+					@Html.DisplayFor(modelItem => item.Colour.Name)
+				</td>
+				<td data-label="Price">
+					@Html.DisplayFor(modelItem => (item.TrimLevel.Price))
+				</td>
+			</tr>
+			<tr class="hidden-row">
+				<td colspan="6" style="padding: 0; width:100%;">
+					<div class="details" style="margin: 1rem;">
+						<h5>
+							@Html.DisplayNameFor(modelItem => item.CarModel.Body)
+						</h5>
+						<p>
+							@Html.DisplayFor(modelItem => item.CarModel.Body.Name)
+						</p>
+						<h5>
+							@Html.DisplayNameFor(modelItem => item.CarModel.YearModel)
+						</h5>
+						<p>
+							@Html.DisplayFor(modelItem => item.CarModel.YearModel)
+						</p>
+						<h5>
+							@Html.DisplayNameFor(modelItem => item.TrimLevel.Features)
+						</h5>
+						<ul>
+							@foreach (var f in item.TrimLevel.Features)
+							{
+								<li>@Html.DisplayFor(mItem => f.Description)</li>
+							}
+						</ul>
+						<div class="btn-group btn-block">
+							<a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
+							<a class="btn btn-danger" asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+						</div>
+					</div>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

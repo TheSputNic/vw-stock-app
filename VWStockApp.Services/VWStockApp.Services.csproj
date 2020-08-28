@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200827153557_spGetStockByID.cs" />
+    <Compile Remove="Migrations\20200827153557_spGetStockByID.Designer.cs" />
+    <Compile Remove="Migrations\20200827154007_spGetStockByID.cs" />
+    <Compile Remove="Migrations\20200827154007_spGetStockByID.Designer.cs" />
+    <Compile Remove="Migrations\20200827161646_spGetStockByID.cs" />
+    <Compile Remove="Migrations\20200827161646_spGetStockByID.Designer.cs" />
+    <Compile Remove="Migrations\20200827161909_spGetStockByID.cs" />
+    <Compile Remove="Migrations\20200827161909_spGetStockByID.Designer.cs" />
+    <Compile Remove="Migrations\20200827163804_Bodies.cs" />
+    <Compile Remove="Migrations\20200827163804_Bodies.Designer.cs" />
+    <Compile Remove="Migrations\20200827164545_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200827164545_InitialCreate.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VWStockApp.Models\VWStockApp.Models.csproj" />
+  </ItemGroup>
+
+</Project>

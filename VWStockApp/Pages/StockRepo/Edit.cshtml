@@ -1,0 +1,89 @@
+﻿@page "{id:int}"
+@model VWStockApp.Pages.StockRepo.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Stock Item</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+		<form method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="StockItem.ID" />
+			<div class="form-group">
+				<label asp-for="StockItem.ID" class="control-label"></label>
+				<div>@Html.DisplayFor(model => model.StockItem.ID)</div>
+			</div>
+			<div class="form-group">
+				<label asp-for="StockItem.MakeID" class="control-label"></label>
+				<select id="MakeID" asp-for="StockItem.MakeID" class="form-control"
+						asp-items="@Model.CarMakeSL">
+					<option value="">-- Select Make --</option>
+				</select>
+				<span asp-validation-for="StockItem.Make" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="StockItem.CarModelID" class="control-label"></label>
+				<select id="ModelID" asp-for="StockItem.CarModelID" class="form-control"
+						asp-items="@Model.CarModelSL">
+					<option value="">-- Select Model --</option>
+				</select>
+				<span asp-validation-for="StockItem.CarModel" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="StockItem.TrimLevelID" class="control-label"></label>
+				<select id="TrimID" asp-for="StockItem.TrimLevelID" class="form-control"
+						asp-items="@Model.TrimLevelSL">
+					<option value="">-- Select Trim Level --</option>
+				</select>
+				<span asp-validation-for="StockItem.TrimLevel" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="StockItem.ColourID" class="control-label"></label>
+				<select asp-for="StockItem.ColourID" class="form-control"
+						asp-items="@Model.ColourSL">
+					<option value="">-- Select Colour --</option>
+				</select>
+				<span asp-validation-for="StockItem.Colour" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="StockItem.TrimLevel.Price" class="control-label"></label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">R</span>
+					</div>
+					<input id="Price" asp-for="StockItem.TrimLevel.Price" class="form-control" aria-label="Amount" value="@Model.Price" style="text-align: right;" disabled />
+					<div class="input-group-append">
+						<span class="input-group-text">.00</span>
+					</div>
+				</div>
+				<span asp-validation-for="StockItem.TrimLevel.Price" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="StockItem.PriceModifier" class="control-label"></label>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">R</span>
+					</div>
+					<input asp-for="StockItem.PriceModifier" class="form-control" aria-label="Amount" value="0" style="text-align: right;" />
+					<div class="input-group-append">
+						<span class="input-group-text">.00</span>
+					</div>
+				</div>
+				<span asp-validation-for="StockItem.PriceModifier" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<input type="submit" value="Edit" class="btn btn-primary btn-block" />
+			</div>
+		</form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
