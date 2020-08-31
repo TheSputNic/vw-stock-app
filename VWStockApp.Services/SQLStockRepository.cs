@@ -48,12 +48,38 @@ namespace VWStockApp.Services
 		public StockItem GetStock(int id)
 		{
 			return context.StockItem
-					.FromSqlRaw<StockItem>("spGetStockById {0}", id)
-					.ToList()
-					.FirstOrDefault();
+				.Include(s => s.Make)
+				.Include(s => s.CarModel)
+				.Include(s => s.Colour)
+				.Include(s => s.TrimLevel)
+					.ThenInclude(s => s.Features)
+				.AsNoTracking()
+				.ToList()
+				.FirstOrDefault();
+
+			//Using Stored Procedures to get the same return as LINQ
+			/*var stockItem = context.StockItem.FromSqlRaw<StockItem>("spGetStockById", id).ToList().First();
+			var make = context.Makes.FromSqlRaw<Make>("spGetMakeById", stockItem.MakeID).First();
+			var carModel = context.CarModels.FromSqlRaw<CarModel>("spGetModelById", stockItem.CarModelID).First() ;
+			var trimLevel = context.TrimLevels.FromSqlRaw<TrimLevel>("spGetTrimById", stockItem.TrimLevelID).First();
+			var colour = context.Colours.FromSqlRaw<Colour>("spGetColourById", stockItem.ColourID).First();
+
+			return new StockItem
+			{
+				ID = stockItem.ID,
+				MakeID = stockItem.MakeID,
+				CarModelID = stockItem.CarModelID,
+				TrimLevelID = stockItem.TrimLevelID,
+				ColourID = stockItem.ColourID,
+				Make = make,
+				CarModel = carModel,
+				TrimLevel = trimLevel,
+				Colour = colour,
+				PriceModifier = stockItem.PriceModifier
+			};*/
 		}
 
-		public IEnumerable<StockItem> Search(string q)
+	public IEnumerable<StockItem> Search(string q)
 		{
 			return context.StockItem.Where(s => s.Make.Name.Contains(q) ||
 												s.CarModel.Name.Contains(q) ||
