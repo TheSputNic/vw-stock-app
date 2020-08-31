@@ -34,5 +34,11 @@ namespace VWStockApp.Pages.StockRepo
                 StockItems = stockRepository.Search(q);
             }
         }
+
+        /*public JsonResult OnGet()
+		{
+            StockItems = stockRepository.GetAllStock();
+            return new JsonResult(StockItems);
+		}*/
     }
 }

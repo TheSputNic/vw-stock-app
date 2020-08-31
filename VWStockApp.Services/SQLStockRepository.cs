@@ -48,6 +48,7 @@ namespace VWStockApp.Services
 		public StockItem GetStock(int id)
 		{
 			return context.StockItem
+				.Where(s => s.ID == id)
 				.Include(s => s.Make)
 				.Include(s => s.CarModel)
 				.Include(s => s.Colour)

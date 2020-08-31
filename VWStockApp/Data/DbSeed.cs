@@ -13,6 +13,8 @@ namespace VWStockApp.Data
 	{
 		public static void Seed(AppDbContext context)
 		{
+			// Seeds the database with basic values, see VWStockApp.Database/dbo/Seed Scripts for more comprehensive data
+
 			// context.Database.EnsureCreated();
 
 			// Check for any cars
@@ -94,33 +96,33 @@ namespace VWStockApp.Data
 
 			context.Features.AddRange(features);
 			context.SaveChanges();
-
+			
 			var stockItems = new StockItem[]
 			{
-				new StockItem{Make=makes.Single(s => s.Name == "Volkswagen"),
-							CarModel=carModels.Single(s => s.Name == "up!"),
-							TrimLevel=trimLevels.Single(s => s.Name == "Take up!"),
-							Colour=colours.Single(s => s.Name == "Tornado Red"),
+				new StockItem{Make=context.Makes.Single(s => s.Name == "Volkswagen"),
+							CarModel=context.CarModels.Single(s => s.Name == "up!"),
+							TrimLevel=context.TrimLevels.Single(s => s.Name == "Take up!"),
+							Colour=context.Colours.Single(s => s.Name == "Tornado Red"),
 							PriceModifier = 0},
-				new StockItem{Make=makes.Single(s => s.Name == "Volkswagen"),
-							CarModel=carModels.Single(s => s.Name == "up!"),
-							TrimLevel=trimLevels.Single(s => s.Name == "up! beats"),
-							Colour=colours.Single(s => s.Name == "Teal Blue"),
+				new StockItem{Make=context.Makes.Single(s => s.Name == "Volkswagen"),
+							CarModel=context.CarModels.Single(s => s.Name == "up!"),
+							TrimLevel=context.TrimLevels.Single(s => s.Name == "up! beats"),
+							Colour=context.Colours.Single(s => s.Name == "Teal Blue"),
 							PriceModifier = 0},
-				new StockItem{Make=makes.Single(s => s.Name == "Volkswagen"),
-							CarModel=carModels.Single(s => s.Name == "Vivo"),
-							TrimLevel=trimLevels.Single(s => s.Name == "Trendline"),
-							Colour=colours.Single(s => s.Name == "Tornado Red"),
+				new StockItem{Make=context.Makes.Single(s => s.Name == "Volkswagen"),
+							CarModel=context.CarModels.Single(s => s.Name == "Vivo"),
+							TrimLevel=context.TrimLevels.Single(s => s.Name == "Trendline"),
+							Colour=context.Colours.Single(s => s.Name == "Tornado Red"),
 							PriceModifier = 0},
-				new StockItem{Make=makes.Single(s => s.Name == "Volkswagen"),
-							CarModel=carModels.Single(s => s.Name == "Vivo"),
-							TrimLevel=trimLevels.Single(s => s.Name == "Sound Edition"),
-							Colour=colours.Single(s => s.Name == "Dark Metallic Silver"),
+				new StockItem{Make=context.Makes.Single(s => s.Name == "Volkswagen"),
+							CarModel=context.CarModels.Single(s => s.Name == "Vivo"),
+							TrimLevel=context.TrimLevels.Single(s => s.Name == "Sound Edition"),
+							Colour=context.Colours.Single(s => s.Name == "Dark Metallic Silver"),
 							PriceModifier = 0},
-				new StockItem{Make=makes.Single(s => s.Name == "Volkswagen"),
-							CarModel=carModels.Single(s => s.Name == "Vivo"),
-							TrimLevel=trimLevels.Single(s => s.Name == "GT"),
-							Colour=colours.Single(s => s.Name == "Deep Black Pearl Effect"),
+				new StockItem{Make=context.Makes.Single(s => s.Name == "Volkswagen"),
+							CarModel=context.CarModels.Single(s => s.Name == "Vivo"),
+							TrimLevel=context.TrimLevels.Single(s => s.Name == "GT"),
+							Colour=context.Colours.Single(s => s.Name == "Deep Black Pearl Effect"),
 							PriceModifier = 0}
 			};
 

@@ -19,6 +19,8 @@
     <Compile Remove="Migrations\20200827164545_InitialCreate.Designer.cs" />
     <Compile Remove="Migrations\20200831083827_Colours.cs" />
     <Compile Remove="Migrations\20200831083827_Colours.Designer.cs" />
+    <Compile Remove="Migrations\20200831094034_CarModel.cs" />
+    <Compile Remove="Migrations\20200831094034_CarModel.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

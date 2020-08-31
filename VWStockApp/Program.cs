@@ -34,8 +34,8 @@ namespace VWStockApp
 					var context = services.GetRequiredService<AppDbContext>();
 
 					// Use to seed a new database 
-					// context.Database.EnsureCreated();
-					// DbSeed.Seed(context);
+					//context.Database.EnsureCreated();
+					//DbSeed.Seed(context);
 				}
 				catch (Exception ex)
 				{

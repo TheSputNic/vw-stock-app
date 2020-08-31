@@ -161,6 +161,16 @@
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Stored Procedures\spReseedTable.sql" />
+    <None Include="dbo\Seed Scripts\seedBodies.sql" />
+    <None Include="dbo\Seed Scripts\seedCarModels.sql" />
+    <None Include="dbo\Seed Scripts\seedColours.sql" />
+    <None Include="dbo\Seed Scripts\seedFeatures.sql" />
+    <None Include="dbo\Seed Scripts\seedStock.sql" />
+    <None Include="dbo\Seed Scripts\seedTrimLevel.sql" />
+    <Build Include="dbo\Stored Procedures\spGetColourById.sql" />
+    <Build Include="dbo\Stored Procedures\spGetMakeById.sql" />
+    <Build Include="dbo\Stored Procedures\spGetModelById.sql" />
+    <Build Include="dbo\Stored Procedures\spGetTrimById.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dbo\Seed Scripts\seedMakes.sql" />
