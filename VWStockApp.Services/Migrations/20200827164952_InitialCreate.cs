@@ -73,12 +73,6 @@ namespace VWStockApp.Services.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Colours", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Colours_CarModels_CarModelID",
-                        column: x => x.CarModelID,
-                        principalTable: "CarModels",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -172,11 +166,6 @@ namespace VWStockApp.Services.Migrations
                 name: "IX_CarModels_MakeID",
                 table: "CarModels",
                 column: "MakeID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Colours_CarModelID",
-                table: "Colours",
-                column: "CarModelID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Features_TrimLevelID",

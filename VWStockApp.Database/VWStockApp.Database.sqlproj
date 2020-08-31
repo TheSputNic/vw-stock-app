@@ -121,6 +121,7 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\Seed Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\__EFMigrationsHistory.sql">
@@ -159,5 +160,9 @@
       <AnsiNulls>On</AnsiNulls>
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
+    <Build Include="dbo\Stored Procedures\spReseedTable.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dbo\Seed Scripts\seedMakes.sql" />
   </ItemGroup>
 </Project>
